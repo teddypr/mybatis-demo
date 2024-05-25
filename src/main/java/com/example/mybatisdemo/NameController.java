@@ -17,14 +17,6 @@ public class NameController {
         this.nameMapper = nameMapper;
     }
 
-//    @GetMapping("/names")
-//    public List<Name> getNames() {
-//        //nameMapperのfindAllを呼び出す。
-//        //そして、その結果を返す
-//        List<Name> names = nameMapper.findAll();
-//        return names;
-//    }
-
     //リクエストパラム
     @GetMapping("/names")
     public List<Name> findByNames(@RequestParam String startsWith) {
