@@ -29,7 +29,9 @@ public class NameController {
     public Name findName(@PathVariable("id") int id){
         return nameService.findName(id);
     }
+}
 
+public class ExceptionHandler {
     @ExceptionHandler(value = NameNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNameNotFoundException(
             NameNotFoundException e, HttpServletRequest request) {
@@ -42,4 +44,3 @@ public class NameController {
         return new ResponseEntity(body, HttpStatus.NOT_FOUND);
     }
 
-}
