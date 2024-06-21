@@ -1,7 +1,9 @@
-package com.example.mybatisdemo;
+package com.example.mybatisdemo.service;
 
+import com.example.mybatisdemo.entity.Name;
+import com.example.mybatisdemo.mapper.NameMapper;
+import com.example.mybatisdemo.NameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +12,7 @@ public class NameService {
 
     //field
     private NameMapper nameMapper;
+
     //constructor
     public NameService(NameMapper nameMapper) {
         this.nameMapper = nameMapper;
@@ -23,6 +26,7 @@ public class NameService {
     }
 
     public Name findName(int id){
+        //Optional は値を持っているかどうか分からない時に入れておく箱
         Optional<Name> name = nameMapper.findById(id);
         if(name.isPresent()){
             return name.get();
@@ -31,5 +35,5 @@ public class NameService {
         }
     }
 
-
 }
+
